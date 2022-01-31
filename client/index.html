@@ -5,33 +5,15 @@
   </head>
   <body class="container">
     <button id="complimentButton">Get a compliment</button>
-
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-    </script>
-     <button id="fortuneButton">Get a fortune</button>
-
-     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-     <script>
-       document.getElementById("fortuneButton").onclick = function () {
-         axios.get("http://localhost:4000/api/fortunes/")
-             .then(function (response) {
-               const data = response.data;
-               alert(data);
-             });
-       };
-     </script>
-    <form>
-      <div>
-      <label for="input"> Send Compliment Back!</label>
-      <br>
-       <input type="text" id="submitComp" name="input" placeholder="Enter compliment">
-       <br>
-      </div>
-      <div>
-        <input type="submit" value = "Send">
-      </div>
-    </form>
-    <script src="index.js"></script>
+    <button id="fortuneButton">Get a fortune</button>
+    <div class="create-goal-div">
+      <input type="text" class="goal" placeholder="Enter your goal here" />
+      <button class="send-goal">post your goal</button>
+      <p class="paragraph-goal"></p>
+    </div>
+ 
+      <script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+      <script src="main.js"></script>
   </body>
 </html>
+

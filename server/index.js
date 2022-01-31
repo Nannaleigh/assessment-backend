@@ -2,43 +2,36 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const compliment = require("./db.json")
+
 
 app.use(cors());
 
 app.use(express.json()); // When we want to be able to accept JSON.
-const fortunes = [ ,
-"Say hello to others. You will have a happier day.", 
-"Self-knowledge is a life long process.", 
-"Remember the birthday but never the age.", 
-"Strong reasons make strong actions.", 
-"Fortune Not Found: Abort, Retry, Ignore?"
-
-];
+const items = []
 const compliments = ["Gee, you're a smart cookie!",
-"Cool shirt!",,
+"Cool shirt!",
 "Your Javascript skills are stellar.",
 ];
 
-app.get("/api/compliments", (req, res) => {
+const fortune = [
+  "At the touch of love, everyone becomes a poet.",
+  "For hate is never conquered by hate. Hate is conquered by love.",
+  "Observe all men, but most of all yourself.", 
+  "Society prepares the crime; the criminal commits it.", 
+  "Self-knowledge is a life long process."
+]
+app.get("/api/compliment", (req, res) => {
   // choose random compliment
   let randomIndex = Math.floor(Math.random() * compliments.length);
   let randomCompliment = compliments[randomIndex];
-
   res.status(200).send(randomCompliment);
   
 });
-
-app.get("/api/fortunes", (req, res) => {
- 
-  let randomIndex = Math.floor(Math.random() * fortunes.length);
-  let randomFortune = fortunes[randomIndex];
-
-  res.status(200).send(randomFortune)
+app.get("/api/fortune", (req, res) => {
+  // choose random fortune
+  let randomIndex = Math.floor(Math.random() * fortune.length);
+  let randomFortune = fortune[randomIndex];
+  res.status(200).send(randomFortune);
+  
 });
-
-app.post("/api/compliments", (req, res) => {
- const { compliments } = req.body
- let newCompliment = compliments.push(newCompliment)
-})
 app.listen(4000, () => console.log("Server running on 4000"));
